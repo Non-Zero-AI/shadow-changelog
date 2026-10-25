@@ -4,6 +4,7 @@ import { getAdapter, listAdapters } from './adapters/index.js';
 import { buildSnapshot } from './snapshot.js';
 import { diffSnapshots, topFindings } from './diff.js';
 import { renderMarkdown, describe } from './report/markdown.js';
+import { buildJsonReport, formatReport } from './report/json.js';
 import { buildRss } from './report/rss.js';
 import { llmSummary } from './report/llm.js';
 import { crossCheck } from './officialNotes.js';
@@ -24,20 +25,42 @@ Usage:
 
 Options:
   --out <dir>       report directory (default: ./reports)
-  --top <n>         number of top findings (default 10)
+  --top <n>         number of notable findings (default 10)
+  --json            print the report as JSON on stdout (logs stay on stderr)
+  --format json     same as --json (--format md is the text report)
   --no-notes        skip the official release-notes cross-check
   --no-llm          never call an LLM even if OPENAI_API_KEY/ANTHROPIC_API_KEY is set
   --force           rebuild cached snapshots
   --base-url <url>  public URL of the reports dir (for RSS links)
+
+--json still writes the Markdown and JSON files. Stdout is only the JSON document
+(schema/report.schema.json). Progress lines go to stderr.
 `;
+
+function wantsJson(opt) {
+  if (opt.format != null && opt.format !== 'json' && opt.format !== 'md' && opt.format !== 'markdown') throw new Error(`unknown --format "${opt.format}" (json or md)`);
+  return opt.json === true || opt.format === 'json';
+}
+
+function readJsonStdout(mdPath) {
+  const text = fs.readFileSync(mdPath.replace(/\.md$/, '.json'), 'utf8').trim();
+  JSON.parse(text);
+  return text + '\n';
+}
+
+const BOOL_OPTS = new Set(['json', 'force']);
 
 function parseArgs(argv) {
   const pos = [], opt = {};
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a.startsWith('--no-')) opt[a.slice(5)] = false;
-    else if (a.startsWith('--')) { const k = a.slice(2); const n = argv[i + 1]; if (n && !n.startsWith('--')) { opt[k] = n; i++; } else opt[k] = true; }
-    else pos.push(a);
+    else if (a.startsWith('--')) {
+      const k = a.slice(2), n = argv[i + 1];
+      // Boolean flags must not swallow the next positional (`diff --json ./old ./new`).
+      if (!BOOL_OPTS.has(k) && n && !n.startsWith('--')) { opt[k] = n; i++; }
+      else opt[k] = true;
+    } else pos.push(a);
   }
   return { pos, opt };
 }
@@ -83,16 +106,16 @@ export async function runDiff(oldSpec, newSpec, opt = {}) {
   const base = `${app.id}-${oldV}-to-${newV}`.replace(/[^\w.@-]/g, '_');
   const mdFile = path.join(outDir, base + '.md');
   fs.writeFileSync(mdFile, md);
-  const json = {
-    app: app.id, appName: app.name, oldVersion: oldV, newVersion: newV, reportFile: base + '.md', meta,
-    headline: diff.headline,
-    top: top.map(t => ({ title: describe(t).replace(/`/g, ''), category: t.cat, kind: t.kind, score: t.score, why: t.why, official: t.official, officialStatus: t.officialStatus, evidence: t.evidence?.slice(0, 2), strings: t.cluster?.items.map(i => ({ key: i.value, text: i.meta.text, referenced: i.meta.referenced })) })),
-    categories: Object.fromEntries(Object.entries(diff.categories).map(([c, d]) => [c, Object.fromEntries(Object.entries(d).map(([k, arr]) => [k, arr.map(x => ({ value: x.value, score: x.score, version: x.version, before: x.before, after: x.after, text: x.meta?.text, referenced: x.meta?.referenced, vendorOnly: x.vendorOnly, evidence: x.evidence?.slice(0, 2) }))]))])),
-    files: diff.files,
-  };
-  fs.writeFileSync(path.join(outDir, base + '.json'), JSON.stringify(json, null, 1));
+  const side = (spec, resolved, version, source, date, files) => ({ spec, app: resolved.adapter.id, version, path: resolved.adapter.id === 'local' ? resolved.version : undefined, source, date, files });
+  const report = buildJsonReport({
+    toolVersion: TOOL_VERSION, generatedAt: meta.generatedAt, app: { id: app.id, name: app.name },
+    old: side(oldSpec, o, oldV, meta.oldSource, oldDate, meta.oldFiles),
+    new: side(newSpec, n, newV, meta.newSource, newDate, meta.newFiles),
+    diff, top, reportFile: base + '.md', notes: notesUsed, llm: summary,
+  });
+  fs.writeFileSync(path.join(outDir, base + '.json'), formatReport(report));
   buildRss(outDir, { baseUrl: opt['base-url'] || process.env.SHADOW_BASE_URL || '' });
-  return { mdFile, top };
+  return { mdFile, top, report };
 }
 
 export async function main(argv) {
@@ -114,21 +137,31 @@ export async function main(argv) {
     }
     case 'diff': {
       if (rest.length < 2) throw new Error('usage: diff <old> <new>');
-      const { mdFile, top } = await runDiff(rest[0], rest[1], opt);
-      console.log(`Report: ${mdFile}`);
-      top.slice(0, 5).forEach((t, i) => console.log(`  ${i + 1}. [${t.score}] ${describe(t).replace(/`/g, '')}`));
+      const json = wantsJson(opt);
+      const { mdFile, top, report } = await runDiff(rest[0], rest[1], opt);
+      if (json) process.stdout.write(formatReport(report));
+      else {
+        console.log(`Report: ${mdFile}`);
+        top.slice(0, 5).forEach((t, i) => console.log(`  ${i + 1}. [${t.score}] ${describe(t).replace(/`/g, '')}`));
+      }
       break;
     }
     case 'latest': {
+      const json = wantsJson(opt);
       const adapter = getAdapter(rest[0]);
       const vs = await adapter.listVersions();
       if (vs.length < 2) throw new Error('need at least two versions');
       const [a, b] = vs.slice(-2).map(v => v.version);
       const outDir = path.resolve(opt.out || 'reports');
       const target = path.join(outDir, `${adapter.id}-${a}-to-${b}.md`);
-      if (fs.existsSync(target) && !opt.force) { console.log(`Up to date: ${target}`); break; }
-      const { mdFile } = await runDiff(`${adapter.id}@${a}`, `${adapter.id}@${b}`, opt);
-      console.log(`Report: ${mdFile}`);
+      if (fs.existsSync(target) && !opt.force) {
+        if (json) process.stdout.write(readJsonStdout(target));
+        else console.log(`Up to date: ${target}`);
+        break;
+      }
+      const { mdFile, report } = await runDiff(`${adapter.id}@${a}`, `${adapter.id}@${b}`, opt);
+      if (json) process.stdout.write(formatReport(report));
+      else console.log(`Report: ${mdFile}`);
       break;
     }
     case 'rss':

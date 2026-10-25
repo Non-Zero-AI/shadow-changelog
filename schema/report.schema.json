@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Non-Zero-AI/shadow-log/schema/report.schema.json",
+  "title": "Shadow Log report",
+  "description": "Stable stdout document printed by `shadow-log diff --json` (and `--format json`) and written to reports/<app>-<old>-to-<new>.json. schemaVersion is 1. Bump it, in the same change as this file, when the shape changes. See src/report/json.js.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "tool", "generatedAt", "app", "inputs", "summary", "findings", "notable", "reportFile"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "tool": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version"],
+      "properties": {
+        "name": { "const": "shadow-log" },
+        "version": { "type": "string", "description": "Version from package.json." }
+      }
+    },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "app": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name"],
+      "properties": {
+        "id": { "type": "string", "description": "Adapter id, or \"local\" for a path diff." },
+        "name": { "type": "string" }
+      }
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["old", "new"],
+      "properties": {
+        "old": { "$ref": "#/$defs/input" },
+        "new": { "$ref": "#/$defs/input" }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["counts"],
+      "properties": {
+        "counts": {
+          "type": "object",
+          "description": "One entry per category, including files. Keys: telemetry, apiPaths, domains, ipc, flags, configKeys, commands, i18n, deps, urls, files.",
+          "additionalProperties": { "$ref": "#/$defs/counts" }
+        },
+        "llm": { "type": "string", "description": "Optional prose written by an LLM from the findings. Present only when an API key was already in the environment and --no-llm was not set. Unverified." }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "description": "Every extracted change, sorted by category, change, then value. Includes urls and individual UI strings. This is the complete list; notable is the ranked subset.",
+      "items": { "$ref": "#/$defs/finding" }
+    },
+    "notable": {
+      "type": "array",
+      "description": "Ranked highlights (same selection as the Markdown \"Top findings\"). File entries use category \"files\". Grouped UI strings use category \"i18n-cluster\". Capped by --top (default 10).",
+      "items": { "$ref": "#/$defs/finding" }
+    },
+    "notes": {
+      "type": "array",
+      "description": "Official release-note pages consulted for the cross-check. Omitted when --no-notes was set or the adapter has no notes.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["version", "url"],
+        "properties": {
+          "version": { "type": "string" },
+          "url": { "type": "string" }
+        }
+      }
+    },
+    "reportFile": { "type": "string", "description": "Basename of the Markdown report written beside this document." }
+  },
+  "$defs": {
+    "input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["spec", "app", "version", "files"],
+      "properties": {
+        "spec": { "type": "string", "description": "What was passed on the command line: app@version or a path." },
+        "app": { "type": "string" },
+        "version": { "type": "string", "description": "Version label. For a local build, the path basename." },
+        "path": { "type": "string", "description": "Absolute path. Present only for a local build." },
+        "source": { "type": "string", "description": "Download URL or local artifact path the snapshot was built from." },
+        "date": { "type": "string", "description": "Publish date (YYYY-MM-DD) when the adapter knows it." },
+        "files": { "type": "integer", "minimum": 0, "description": "Number of files in the unpacked bundle." }
+      }
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["added", "removed", "changed"],
+      "properties": {
+        "added": { "type": "integer", "minimum": 0 },
+        "removed": { "type": "integer", "minimum": 0 },
+        "changed": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["file"],
+      "properties": {
+        "file": { "type": "string", "description": "Path inside the unpacked bundle. Line numbers refer to the js-beautify output in .cache/<app>/<version>/pretty/<file>." },
+        "line": { "type": "integer", "minimum": 1, "description": "1-based line. Omitted when the extractor has no line (package.json dependencies, locale JSON)." },
+        "snippet": { "type": "string", "description": "Short excerpt, at most about 160 characters." }
+      }
+    },
+    "stringItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key", "text", "referenced"],
+      "properties": {
+        "key": { "type": "string" },
+        "text": { "type": "string" },
+        "referenced": { "type": "boolean" }
+      }
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["category", "change", "value", "evidence"],
+      "properties": {
+        "category": { "type": "string", "description": "telemetry, apiPaths, domains, ipc, flags, configKeys, commands, i18n, deps, urls, files, or (notable only) i18n-cluster." },
+        "change": { "enum": ["added", "removed", "changed"] },
+        "value": { "type": "string" },
+        "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" } },
+        "title": { "type": "string", "description": "Prose label. Present on notable entries." },
+        "score": { "type": "integer" },
+        "why": { "type": "array", "items": { "type": "string" } },
+        "before": { "type": "string", "description": "Previous version (deps) or previous UI text (i18n) when change is \"changed\"." },
+        "after": { "type": "string" },
+        "version": { "type": "string", "description": "Dependency or bundled-library version, when known." },
+        "text": { "type": "string", "description": "UI string text for an i18n finding." },
+        "referenced": { "type": "boolean", "description": "For UI strings: whether any first-party code mentions the key. False is not proof the feature is unreleased." },
+        "vendorOnly": { "type": "boolean", "description": "True when the only evidence is third-party code. Omitted otherwise." },
+        "officialStatus": { "enum": ["mentioned", "later", "absent"], "description": "Release-notes cross-check for a notable finding. absent means the search terms were not in the notes, not that the vendor concealed anything." },
+        "official": { "type": "string" },
+        "strings": { "type": "array", "items": { "$ref": "#/$defs/stringItem" }, "description": "Member strings of an i18n-cluster notable finding." },
+        "size": { "type": "integer", "minimum": 0 },
+        "beforeSize": { "type": "integer", "minimum": 0 },
+        "afterSize": { "type": "integer", "minimum": 0 },
+        "referencedBy": { "type": "array", "items": { "type": "string" } },
+        "banner": { "type": "string" }
+      }
+    }
+  }
+}

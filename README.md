@@ -26,12 +26,22 @@ Shadow Log found the app bundle also gained `lib/pele.min.js` (683 KB, `Pele 1.8
 ## Install
 
 ```bash
-git clone https://github.com/Non-Zero-AI/shadow-log && cd shadow-log
+git clone https://github.com/Non-Zero-AI/shadow-log.git && cd shadow-log
 npm install
-node bin/shadow-log.js --help      # or: npm link && shadow-log --help
+npx shadow-log --help      # or: node bin/shadow-log.js --help
 ```
 
 Requires Node 20+. Optional: `dpkg-deb` for `.deb` inputs, `tar` for tarballs.
+
+## Use it with your AI agent
+
+The repo ships a [`SKILL.md`](SKILL.md) and a `--json` mode so an agent can diff two builds and quote file and line evidence instead of paraphrasing the release notes.
+
+Copy `SKILL.md` into the agent's skills folder, for example `.cursor/skills/shadow-log/SKILL.md` or `~/.claude/skills/shadow-log/SKILL.md`.
+
+```
+Install Shadow Log from https://github.com/Non-Zero-AI/shadow-log, then diff the last two versions of [APP] and tell me what changed that the release notes didn't mention. Use `--json` and cite the file and line for each finding.
+```
 
 ## Usage
 
@@ -40,18 +50,21 @@ shadow-log apps                                  # list adapters
 shadow-log versions obsidian                     # public versions the adapter can fetch
 shadow-log fetch obsidian 1.14.5                 # download + unpack + extract (cached in .cache/)
 shadow-log diff obsidian@1.14.4 obsidian@1.14.5  # write reports/obsidian-1.14.4-to-1.14.5.md (+ .json, feed.xml)
-shadow-log diff ./old/app.asar ./new/app.asar    # any local .asar / .asar.gz / .tar.gz / .deb / .zip / directory
-shadow-log latest obsidian                       # diff the two newest versions (no-op if already reported)
+shadow-log diff obsidian@1.14.4 obsidian@1.14.5 --json   # same report as JSON on stdout
+shadow-log diff ./old/app.asar ./new/app.asar --json     # any local .asar / .asar.gz / .tar.gz / .deb / .zip / directory
+shadow-log latest obsidian --json                # diff the two newest versions (no-op if already reported)
 shadow-log rss --base-url https://example.com/reports
 ```
 
-Options: `--out <dir>`, `--top <n>`, `--force` (rebuild snapshots), `--no-notes` (skip release-notes cross-check), `--no-llm`.
+Options: `--out <dir>`, `--top <n>`, `--force` (rebuild snapshots), `--no-notes` (skip release-notes cross-check), `--no-llm`, `--json`, `--format json` (same as `--json`; `--format md` is the text report).
+
+`--json` prints one JSON document to stdout and sends logs to stderr. The same document is written to `reports/<app>-<old>-to-<new>.json`. Shape: [`schema/report.schema.json`](schema/report.schema.json) (`schemaVersion` 1) — tool name and version, the old and new inputs, `summary.counts` per category, and a `findings` array (`category`, `change` of `added` / `removed` / `changed`, `value`, `evidence` with `file` and `line` when the extractor has one). `notable` is the ranked shortlist. Reports checked in before this schema have no `schemaVersion`; `shadow-log rss` still reads them.
 
 Evidence line numbers refer to the js-beautify output in `.cache/<app>/<version>/pretty/<file>`, so you can open the exact line yourself.
 
 ### Optional LLM summary
 
-If `OPENAI_API_KEY` or `ANTHROPIC_API_KEY` is **already set** in the environment, the report gets a short summary written from the extracted findings (only finding titles, UI strings and short evidence snippets are sent, never whole files). Without a key, the report is fully deterministic. `--no-llm` turns it off.
+If `OPENAI_API_KEY` or `ANTHROPIC_API_KEY` is **already set** in the environment, the report gets a short summary written from the extracted findings (only finding titles, UI strings and short evidence snippets are sent, never whole files). Without a key, the report is fully deterministic. `--no-llm` turns it off. With `--json`, that prose is `summary.llm` and is still unverified.
 
 ## How it works
 
@@ -98,5 +111,7 @@ For apps that don't publish on GitHub, write a module with `listVersions()` and 
 ```bash
 npm test   # offline end-to-end test on synthetic bundles + parser tests
 ```
+
+`npm test` runs `node --test test/*.test.js` so the same command works on Node 20 and Node 22.
 
 MIT licensed.
