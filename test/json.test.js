@@ -140,3 +140,42 @@ test('rss reads a schemaVersion 1 report and a legacy report', () => {
   assert.match(feed, /Demo 1 → 2/);
   assert.match(feed, /Local build v1 → v2/);
 });
+
+test('rss skips stray and malformed json and keeps valid reports', () => {
+  const dir = path.join(tmp, 'rss-skip');
+  fs.mkdirSync(dir);
+  const legacy = { app: 'demo', appName: 'Demo', oldVersion: '1', newVersion: '2', reportFile: 'demo-1-to-2.md', meta: { generatedAt: '2020-01-01T00:00:00.000Z' }, top: [{ title: 'New flag x' }] };
+  const current = {
+    schemaVersion: 1, tool: { name: 'shadow-log', version: '0.1.0' }, generatedAt: '2026-01-02T00:00:00.000Z',
+    app: { id: 'local', name: 'Local build' },
+    inputs: { old: { spec: 'v1', app: 'local', version: 'v1', files: 1 }, new: { spec: 'v2', app: 'local', version: 'v2', files: 2 } },
+    summary: { counts: {} }, findings: [], reportFile: 'local-v1-to-v2.md',
+    notable: [{ category: 'ipc', change: 'added', value: 'ai-assistant:ask', title: 'New IPC channel ai-assistant:ask', evidence: [{ file: 'main.js', line: 4 }] }],
+  };
+  const fields = { generatedAt: '2026-06-01T00:00:00.000Z', app: { id: 'x', name: 'Nope' }, inputs: { old: { version: '0' }, new: { version: '9' } }, summary: { counts: {} }, findings: [], reportFile: 'nope.md' };
+  fs.writeFileSync(path.join(dir, 'legacy.json'), JSON.stringify(legacy));
+  fs.writeFileSync(path.join(dir, 'current.json'), JSON.stringify(current));
+  fs.writeFileSync(path.join(dir, 'package.json'), JSON.stringify({ name: 'stray-package', version: '9.9.9' }));
+  fs.writeFileSync(path.join(dir, 'broken.json'), '{');
+  fs.writeFileSync(path.join(dir, 'partial.json'), JSON.stringify({ schemaVersion: 1, tool: { name: 'shadow-log', version: '0.1.0' }, app: { name: 'Partial' } }));
+  fs.writeFileSync(path.join(dir, 'other.json'), JSON.stringify({ ...fields, schemaVersion: 1, tool: { name: 'other-tool', version: '1' }, notable: [{ title: 'from-other-tool' }] }));
+  fs.writeFileSync(path.join(dir, 'future.json'), JSON.stringify({ ...fields, schemaVersion: 99, tool: { name: 'shadow-log', version: '9' }, notable: [{ title: 'from-future-schema' }] }));
+  const r = run(['rss', '--out', dir]);
+  assert.equal(r.status, 0, r.stderr);
+  assert.equal(r.stdout.trim(), path.join(dir, 'feed.xml'));
+  const feed = fs.readFileSync(path.join(dir, 'feed.xml'), 'utf8');
+  assert.match(feed, /New flag x/);
+  assert.match(feed, /ai-assistant:ask/);
+  assert.match(feed, /Demo 1 → 2/);
+  assert.match(feed, /Local build v1 → v2/);
+  assert.equal((feed.match(/<item>/g) || []).length, 2);
+  assert.doesNotMatch(feed, /stray-package|from-other-tool|from-future-schema|Partial|undefined/);
+  for (const name of ['package.json', 'broken.json', 'partial.json', 'other.json', 'future.json']) {
+    assert.ok(r.stderr.includes(`warning: skip ${name}`), r.stderr);
+  }
+  assert.match(r.stderr, /broken\.json: invalid JSON/);
+  assert.match(r.stderr, /package\.json: not a shadow-log report/);
+  assert.match(r.stderr, /partial\.json: missing report fields/);
+  assert.match(r.stderr, /other\.json: unexpected tool name/);
+  assert.match(r.stderr, /future\.json: unknown schemaVersion/);
+});
