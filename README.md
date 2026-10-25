@@ -1,8 +1,10 @@
-# Shadow Changelog
+# Shadow Log
+
+Formerly Shadow Changelog.
 
 **What did that update actually change?**
 
-Release notes are marketing copy. The shipped bundle is the real story. Shadow Changelog downloads two consecutive **public** releases of a desktop app (Electron first), diffs what's inside them, and writes a readable Markdown report covering:
+Release notes are marketing copy. The shipped bundle is the real story. Shadow Log downloads two consecutive **public** releases of a desktop app (Electron first), diffs what's inside them, and writes a readable Markdown report covering:
 
 - new or removed **feature flags and experiment-like identifiers**
 - **endpoints, API paths and domains** the app references
@@ -18,15 +20,15 @@ Every claim cites **file, line and a short snippet** so anyone can verify it. Ea
 ### Example: Obsidian 1.14.5
 
 The official 1.14.5 notes say only: *"This release updates Electron from 43.7.5 to 43.8.3."*
-Shadow Changelog found the app bundle also gained `lib/pele.min.js` (683 KB, `Pele 1.8.0 | MIT License`). No app code references it yet. Pele is the Mermaid replacement first announced in the **1.15.0 Catalyst (early-access)** notes, so the public build is pre-staging next release's renderer.
+Shadow Log found the app bundle also gained `lib/pele.min.js` (683 KB, `Pele 1.8.0 | MIT License`). No app code references it yet. Pele is the Mermaid replacement first announced in the **1.15.0 Catalyst (early-access)** notes, so the public build is pre-staging next release's renderer.
 → [`reports/obsidian-1.14.4-to-1.14.5.md`](reports/obsidian-1.14.4-to-1.14.5.md) · bigger diff: [`reports/obsidian-1.13.7-to-1.14.4.md`](reports/obsidian-1.13.7-to-1.14.4.md)
 
 ## Install
 
 ```bash
-git clone <this repo> && cd shadow-changelog
+git clone https://github.com/Non-Zero-AI/shadow-log && cd shadow-log
 npm install
-node bin/shadow-changelog.js --help      # or: npm link && shadow-changelog --help
+node bin/shadow-log.js --help      # or: npm link && shadow-log --help
 ```
 
 Requires Node 20+. Optional: `dpkg-deb` for `.deb` inputs, `tar` for tarballs.
@@ -34,13 +36,13 @@ Requires Node 20+. Optional: `dpkg-deb` for `.deb` inputs, `tar` for tarballs.
 ## Usage
 
 ```bash
-shadow-changelog apps                                  # list adapters
-shadow-changelog versions obsidian                     # public versions the adapter can fetch
-shadow-changelog fetch obsidian 1.14.5                 # download + unpack + extract (cached in .cache/)
-shadow-changelog diff obsidian@1.14.4 obsidian@1.14.5  # write reports/obsidian-1.14.4-to-1.14.5.md (+ .json, feed.xml)
-shadow-changelog diff ./old/app.asar ./new/app.asar    # any local .asar / .asar.gz / .tar.gz / .deb / .zip / directory
-shadow-changelog latest obsidian                       # diff the two newest versions (no-op if already reported)
-shadow-changelog rss --base-url https://example.com/reports
+shadow-log apps                                  # list adapters
+shadow-log versions obsidian                     # public versions the adapter can fetch
+shadow-log fetch obsidian 1.14.5                 # download + unpack + extract (cached in .cache/)
+shadow-log diff obsidian@1.14.4 obsidian@1.14.5  # write reports/obsidian-1.14.4-to-1.14.5.md (+ .json, feed.xml)
+shadow-log diff ./old/app.asar ./new/app.asar    # any local .asar / .asar.gz / .tar.gz / .deb / .zip / directory
+shadow-log latest obsidian                       # diff the two newest versions (no-op if already reported)
+shadow-log rss --base-url https://example.com/reports
 ```
 
 Options: `--out <dir>`, `--top <n>`, `--force` (rebuild snapshots), `--no-notes` (skip release-notes cross-check), `--no-llm`.
@@ -74,7 +76,7 @@ For apps that don't publish on GitHub, write a module with `listVersions()` and 
 
 ## Run it on a schedule
 
-`.github/workflows/shadow-changelog.yml` runs every 6 hours. It diffs the newest pair for each app in the matrix, commits `reports/*.md|json`, and rebuilds `reports/feed.xml`, so people can subscribe to "what changed" for their favorite apps.
+`.github/workflows/shadow-log.yml` runs every 6 hours. It diffs the newest pair for each app in the matrix, commits `reports/*.md|json`, and rebuilds `reports/feed.xml`, so people can subscribe to "what changed" for their favorite apps.
 
 ## Ethics and legal
 

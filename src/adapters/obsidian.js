@@ -16,7 +16,7 @@ export default {
 
   // Official release notes, one block per version, from obsidian.md/changelog (public HTML page).
   async officialNotes() {
-    const res = await fetch('https://obsidian.md/changelog/', { headers: { 'user-agent': 'shadow-changelog (+https://github.com/)' } });
+    const res = await fetch('https://obsidian.md/changelog/', { headers: { 'user-agent': 'shadow-log (+https://github.com/Non-Zero-AI/shadow-log)' } });
     if (!res.ok) throw new Error(`changelog HTTP ${res.status}`);
     return parseChangelog(await res.text());
   },

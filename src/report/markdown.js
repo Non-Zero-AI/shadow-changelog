@@ -65,7 +65,7 @@ export function renderMarkdown({ app, oldV, newV, diff, meta, llmSummary, topN =
   const silent = top.filter(t => t.officialStatus && t.officialStatus !== 'mentioned').length;
   const h = diff.headline;
   const out = [];
-  out.push(`# Shadow Changelog: ${app.name} ${oldV} → ${newV}`, '');
+  out.push(`# Shadow Log: ${app.name} ${oldV} → ${newV}`, '');
   out.push(`> What the update actually changed, read from the shipped code of two public releases. Every item cites the file and line (in the js-beautify output) where it was found. Automated heuristics: "possible", not "confirmed".`, '');
   out.push(`| | old | new |`, `|---|---|---|`);
   out.push(`| version | ${oldV} | ${newV} |`);
@@ -77,7 +77,7 @@ export function renderMarkdown({ app, oldV, newV, diff, meta, llmSummary, topN =
     const checked = top.filter(t => t.officialStatus).length;
     out.push(`**Release-notes cross-check:** ${silent} of the ${checked} top findings checked were not found in the official notes for ${oldV}→${newV}${top.some(t => t.officialStatus === 'later') ? ' (some show up only in notes for a *later* version)' : ''}. The check is a plain-text match and can miss reworded announcements.`, '');
   }
-  out.push(`Generated ${meta.generatedAt} by shadow-changelog ${meta.toolVersion}.`, '');
+  out.push(`Generated ${meta.generatedAt} by shadow-log ${meta.toolVersion}.`, '');
 
   out.push('## At a glance', '', '| category | added | removed | changed |', '|---|---:|---:|---:|');
   for (const [c, n] of Object.entries(h.counts)) out.push(`| ${CATEGORY_INFO[c].title} | ${n.added} | ${n.removed} | ${n.changed || ''} |`);
@@ -125,7 +125,7 @@ export function renderMarkdown({ app, oldV, newV, diff, meta, llmSummary, topN =
   }
   out.push('## Method & caveats', '',
     '- Inputs are the vendor\'s own public release artifacts, downloaded unmodified. No DRM, encryption, licensing or anti-tamper mechanism is touched.',
-    '- JavaScript is beautified with js-beautify; line numbers refer to that output so anyone can reproduce them (`shadow-changelog fetch` + open `.cache/<app>/<ver>/pretty/<file>`).',
+    '- JavaScript is beautified with js-beautify; line numbers refer to that output so anyone can reproduce them (`shadow-log fetch` + open `.cache/<app>/<ver>/pretty/<file>`).',
     '- Findings come from static string/pattern extraction. A new string proves the code shipped, not that the feature is turned on, reachable, or will launch.',
     '- "Unreferenced" UI strings: no first-party code token matches the key name. Keys built dynamically can show up as false positives.',
     '- Third-party library code is marked _(vendor)_ and down-weighted.',

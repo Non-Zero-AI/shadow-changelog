@@ -1,13 +1,21 @@
 {
-  "name": "shadow-changelog",
+  "name": "shadow-log",
   "version": "0.1.0",
   "description": "Diff consecutive public releases of desktop apps and publish what the update really changed: hidden features, flags, endpoints, telemetry, IPC, with evidence.",
   "type": "module",
-  "bin": { "shadow-changelog": "bin/shadow-changelog.js" },
+  "bin": { "shadow-log": "bin/shadow-log.js" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Non-Zero-AI/shadow-log"
+  },
+  "homepage": "https://github.com/Non-Zero-AI/shadow-log",
+  "bugs": {
+    "url": "https://github.com/Non-Zero-AI/shadow-log/issues"
+  },
   "engines": { "node": ">=20" },
   "scripts": {
     "test": "node --test test/",
-    "demo": "node bin/shadow-changelog.js diff obsidian@1.13.7 obsidian@1.14.4"
+    "demo": "node bin/shadow-log.js diff obsidian@1.13.7 obsidian@1.14.4"
   },
   "license": "MIT",
   "dependencies": {

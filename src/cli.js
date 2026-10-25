@@ -11,16 +11,16 @@ import { ROOT, ensureDir, log } from './util.js';
 
 const TOOL_VERSION = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')).version;
 
-const HELP = `shadow-changelog: what did that update really change?
+const HELP = `shadow-log: what did that update really change?
 
 Usage:
-  shadow-changelog apps                              list app adapters
-  shadow-changelog versions <app>                    list public versions the adapter can fetch
-  shadow-changelog fetch <app> <version>             download + unpack + extract one release (cached)
-  shadow-changelog diff <old> <new> [options]        diff two releases and write a report
+  shadow-log apps                              list app adapters
+  shadow-log versions <app>                    list public versions the adapter can fetch
+  shadow-log fetch <app> <version>             download + unpack + extract one release (cached)
+  shadow-log diff <old> <new> [options]        diff two releases and write a report
         <old>/<new> are app@version (e.g. obsidian@1.13.7) or local paths (.asar, .asar.gz, .tar.gz, .deb, dir)
-  shadow-changelog latest <app> [options]            diff the two newest public versions (skips if report exists)
-  shadow-changelog rss [--out reports] [--base-url URL]   rebuild reports/feed.xml
+  shadow-log latest <app> [options]            diff the two newest public versions (skips if report exists)
+  shadow-log rss [--out reports] [--base-url URL]   rebuild reports/feed.xml
 
 Options:
   --out <dir>       report directory (default: ./reports)

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"><channel>
-<title>Shadow Changelog</title><link>https://example.invalid/</link>
+<title>Shadow Log</title><link>https://example.invalid/</link>
 <description>What app updates really changed: hidden features, flags, endpoints, telemetry. With evidence.</description>
 <item>
 <title>Obsidian 1.14.4 → 1.14.5: New bundled library file lib/pele.min.js (683.3 KB), not referenced by app code</title>

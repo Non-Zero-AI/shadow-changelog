@@ -1,5 +1,5 @@
 // Analyze any artifact you already have on disk: .asar, .asar.gz, .tar.gz, .deb, .zip, or a directory.
-// Usage: shadow-changelog diff ./old/app.asar ./new/app.asar
+// Usage: shadow-log diff ./old/app.asar ./new/app.asar
 import fs from 'node:fs';
 import path from 'node:path';
 

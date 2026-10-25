@@ -4,7 +4,7 @@ import path from 'node:path';
 const esc = s => String(s).replace(/[<>&'"]/g, c => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', "'": '&apos;', '"': '&quot;' }[c]));
 
 // Build reports/feed.xml from every reports/*.json (written next to each Markdown report).
-export function buildRss(dir, { baseUrl = '', title = 'Shadow Changelog' } = {}) {
+export function buildRss(dir, { baseUrl = '', title = 'Shadow Log' } = {}) {
   const items = fs.readdirSync(dir).filter(f => f.endsWith('.json')).map(f => JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')))
     .sort((a, b) => (b.meta.generatedAt || '').localeCompare(a.meta.generatedAt || '')).slice(0, 50);
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

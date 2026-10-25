@@ -1,6 +1,6 @@
-# Checks for new public releases every 6 hours, writes a Shadow Changelog report for each new
+# Checks for new public releases every 6 hours, writes a Shadow Log report for each new
 # version pair, rebuilds the RSS feed, and commits the results back to the repo.
-name: shadow-changelog
+name: shadow-log
 
 on:
   schedule:
@@ -8,14 +8,14 @@ on:
   workflow_dispatch:
     inputs:
       app:
-        description: "Adapter id (see `shadow-changelog apps`)"
+        description: "Adapter id (see `shadow-log apps`)"
         default: "obsidian"
 
 permissions:
   contents: write
 
 concurrency:
-  group: shadow-changelog
+  group: shadow-log
   cancel-in-progress: false
 
 jobs:
@@ -50,14 +50,14 @@ jobs:
           # Optional: set OPENAI_API_KEY or ANTHROPIC_API_KEY as repo secrets for a short LLM-written summary.
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: node bin/shadow-changelog.js latest ${{ github.event.inputs.app || matrix.app }} --out reports
+        run: node bin/shadow-log.js latest ${{ github.event.inputs.app || matrix.app }} --out reports
 
       - name: Rebuild RSS feed
-        run: node bin/shadow-changelog.js rss --out reports --base-url "https://github.com/${{ github.repository }}/blob/main/reports"
+        run: node bin/shadow-log.js rss --out reports --base-url "https://github.com/${{ github.repository }}/blob/main/reports"
 
       - name: Commit new reports
         run: |
-          git config user.name "shadow-changelog[bot]"
+          git config user.name "shadow-log[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add reports
           if git diff --cached --quiet; then echo "No new reports"; exit 0; fi

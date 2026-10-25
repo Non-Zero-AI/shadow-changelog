@@ -16,7 +16,7 @@ export async function download(url, dest, { headers = {} } = {}) {
   ensureDir(path.dirname(dest));
   if (fs.existsSync(dest) && fs.statSync(dest).size > 0) { log('cached', path.basename(dest)); return dest; }
   log('downloading', url);
-  const res = await fetch(url, { headers: { 'user-agent': 'shadow-changelog/0.1 (+research; public releases only)', ...headers }, redirect: 'follow' });
+  const res = await fetch(url, { headers: { 'user-agent': 'shadow-log/0.1 (+research; public releases only)', ...headers }, redirect: 'follow' });
   if (!res.ok) throw new Error(`download failed ${res.status} ${url}`);
   const tmp = dest + '.part';
   await pipeline(Readable.fromWeb(res.body), fs.createWriteStream(tmp));
@@ -30,7 +30,7 @@ export async function gunzipFile(src, dest) {
 }
 
 export async function githubJson(url) {
-  const headers = { accept: 'application/vnd.github+json', 'user-agent': 'shadow-changelog/0.1' };
+  const headers = { accept: 'application/vnd.github+json', 'user-agent': 'shadow-log/0.1' };
   if (process.env.GITHUB_TOKEN) headers.authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
   const res = await fetch(url, { headers });
   if (!res.ok) throw new Error(`GitHub API ${res.status} for ${url}`);

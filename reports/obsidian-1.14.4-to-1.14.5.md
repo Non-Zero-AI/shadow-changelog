@@ -1,4 +1,4 @@
-# Shadow Changelog: Obsidian 1.14.4 → 1.14.5
+# Shadow Log: Obsidian 1.14.4 → 1.14.5
 
 > What the update actually changed, read from the shipped code of two public releases. Every item cites the file and line (in the js-beautify output) where it was found. Automated heuristics: "possible", not "confirmed".
 
@@ -13,7 +13,7 @@ Official notes: https://github.com/obsidianmd/obsidian-releases/releases/tag/v1.
 
 **Release-notes cross-check:** 1 of the 1 top findings checked were not found in the official notes for 1.14.4→1.14.5 (some show up only in notes for a *later* version). The check is a plain-text match and can miss reworded announcements.
 
-Generated 2026-10-25T15:14:56.257Z by shadow-changelog 0.1.0.
+Generated 2026-10-25T15:14:56.257Z by shadow-log 0.1.0.
 
 ## At a glance
 
@@ -90,7 +90,7 @@ Not new in this update, listed so readers know the baseline:
 ## Method & caveats
 
 - Inputs are the vendor's own public release artifacts, downloaded unmodified. No DRM, encryption, licensing or anti-tamper mechanism is touched.
-- JavaScript is beautified with js-beautify; line numbers refer to that output so anyone can reproduce them (`shadow-changelog fetch` + open `.cache/<app>/<ver>/pretty/<file>`).
+- JavaScript is beautified with js-beautify; line numbers refer to that output so anyone can reproduce them (`shadow-log fetch` + open `.cache/<app>/<ver>/pretty/<file>`).
 - Findings come from static string/pattern extraction. A new string proves the code shipped, not that the feature is turned on, reachable, or will launch.
 - "Unreferenced" UI strings: no first-party code token matches the key name. Keys built dynamically can show up as false positives.
 - Third-party library code is marked _(vendor)_ and down-weighted.
