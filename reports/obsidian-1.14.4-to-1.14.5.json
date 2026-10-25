@@ -1,0 +1,234 @@
+{
+ "app": "obsidian",
+ "appName": "Obsidian",
+ "oldVersion": "1.14.4",
+ "newVersion": "1.14.5",
+ "reportFile": "obsidian-1.14.4-to-1.14.5.md",
+ "meta": {
+  "notesUsed": [
+   {
+    "version": "1.15.0",
+    "url": "https://obsidian.md/changelog/2026-10-22-desktop-v1.15.0/"
+   },
+   {
+    "version": "1.14.5",
+    "url": "https://obsidian.md/changelog/2026-10-22-desktop-v1.14.5/"
+   },
+   {
+    "version": "1.14.4",
+    "url": "https://obsidian.md/changelog/2026-10-05-desktop-v1.14.4/"
+   },
+   {
+    "version": "1.14.4",
+    "url": "https://obsidian.md/changelog/2026-10-01-desktop-v1.14.4/"
+   },
+   {
+    "version": "1.14.3",
+    "url": "https://obsidian.md/changelog/2026-09-29-desktop-v1.14.3/"
+   },
+   {
+    "version": "1.14.2",
+    "url": "https://obsidian.md/changelog/2026-09-15-desktop-v1.14.2/"
+   },
+   {
+    "version": "1.14.1",
+    "url": "https://obsidian.md/changelog/2026-09-08-desktop-v1.14.1/"
+   },
+   {
+    "version": "1.14.0",
+    "url": "https://obsidian.md/changelog/2026-09-02-desktop-v1.14.0/"
+   },
+   {
+    "version": "1.13.7",
+    "url": "https://obsidian.md/changelog/2026-08-12-desktop-v1.13.7/"
+   },
+   {
+    "version": "1.13.7",
+    "url": "https://obsidian.md/changelog/2026-08-11-desktop-v1.13.7/"
+   }
+  ],
+  "generatedAt": "2026-10-25T15:14:56.257Z",
+  "toolVersion": "0.1.0",
+  "oldSource": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.14.4/obsidian-1.14.4.asar.gz",
+  "newSource": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.14.5/obsidian-1.14.5.asar.gz",
+  "oldDate": "2026-10-05",
+  "newDate": "2026-10-22",
+  "oldFiles": 368,
+  "newFiles": 369
+ },
+ "headline": {
+  "counts": {
+   "telemetry": {
+    "added": 0,
+    "removed": 0,
+    "changed": 0
+   },
+   "apiPaths": {
+    "added": 0,
+    "removed": 0,
+    "changed": 0
+   },
+   "domains": {
+    "added": 0,
+    "removed": 0,
+    "changed": 0
+   },
+   "ipc": {
+    "added": 0,
+    "removed": 0,
+    "changed": 0
+   },
+   "flags": {
+    "added": 0,
+    "removed": 0,
+    "changed": 0
+   },
+   "configKeys": {
+    "added": 0,
+    "removed": 0,
+    "changed": 0
+   },
+   "commands": {
+    "added": 0,
+    "removed": 0,
+    "changed": 0
+   },
+   "i18n": {
+    "added": 0,
+    "removed": 0,
+    "changed": 0
+   },
+   "deps": {
+    "added": 1,
+    "removed": 0,
+    "changed": 0
+   },
+   "urls": {
+    "added": 1,
+    "removed": 0,
+    "changed": 0
+   }
+  },
+  "files": {
+   "added": 1,
+   "removed": 0,
+   "changed": 2
+  }
+ },
+ "top": [
+  {
+   "title": "New bundled library file lib/pele.min.js (683.3 KB), not referenced by app code",
+   "category": "file",
+   "kind": "added",
+   "score": 60,
+   "why": [
+    "new bundled library file",
+    "no first-party code references it by name (shipped but possibly not wired up yet)"
+   ],
+   "official": "**not in the notes for 1.14.4→1.14.5**; first appears in the 1.15.0 (catalyst) notes (matched \"pele\")",
+   "officialStatus": "later"
+  }
+ ],
+ "categories": {
+  "telemetry": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "apiPaths": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "domains": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "ipc": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "flags": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "configKeys": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "commands": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "i18n": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "deps": {
+   "added": [
+    {
+     "value": "bundled:lib/pele.min.js (Pele)",
+     "score": 30,
+     "version": "1.8.0",
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "lib/pele.min.js",
+       "line": 0,
+       "snippet": "bundled:lib/pele.min.js (Pele) 1.8.0"
+      }
+     ]
+    }
+   ],
+   "removed": [],
+   "changed": []
+  },
+  "urls": {
+   "added": [
+    {
+     "value": "https://github.com/obsidianmd/pele",
+     "score": 5,
+     "vendorOnly": true,
+     "evidence": [
+      {
+       "file": "lib/pele.min.js",
+       "line": 1,
+       "snippet": "/*! Pele 1.8.0 | MIT License | https://github.com/obsidianmd/pele */"
+      }
+     ]
+    }
+   ],
+   "removed": [],
+   "changed": []
+  }
+ },
+ "files": {
+  "added": [
+   {
+    "file": "lib/pele.min.js",
+    "size": 699670,
+    "referencedBy": [],
+    "banner": "Pele 1.8.0 | MIT License | https://github.com/obsidianmd/pele"
+   }
+  ],
+  "removed": [],
+  "changed": [
+   {
+    "file": "app.js",
+    "before": 3942126,
+    "after": 3942126
+   },
+   {
+    "file": "package.json",
+    "before": 260,
+    "after": 260
+   }
+  ]
+ }
+}

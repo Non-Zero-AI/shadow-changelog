@@ -1,0 +1,17 @@
+{
+  "name": "shadow-changelog",
+  "version": "0.1.0",
+  "description": "Diff consecutive public releases of desktop apps and publish what the update really changed: hidden features, flags, endpoints, telemetry, IPC, with evidence.",
+  "type": "module",
+  "bin": { "shadow-changelog": "bin/shadow-changelog.js" },
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test test/",
+    "demo": "node bin/shadow-changelog.js diff obsidian@1.13.7 obsidian@1.14.4"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@electron/asar": "^3.2.17",
+    "js-beautify": "^1.15.1"
+  }
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+<title>Shadow Changelog</title><link>https://example.invalid/</link>
+<description>What app updates really changed: hidden features, flags, endpoints, telemetry. With evidence.</description>
+<item>
+<title>Obsidian 1.14.4 → 1.14.5: New bundled library file lib/pele.min.js (683.3 KB), not referenced by app code</title>
+<link>obsidian-1.14.4-to-1.14.5.md</link>
+<guid isPermaLink="false">obsidian-1.14.4-1.14.5</guid>
+<pubDate>Sun, 25 Oct 2026 15:14:56 GMT</pubDate>
+<description>• New bundled library file lib/pele.min.js (683.3 KB), not referenced by app code</description>
+</item>
+<item>
+<title>Obsidian 1.13.7 → 1.14.4: New UI string group plugins.bases.kanban (9 strings); Removed UI string group plugins.markdownFormatImporter (15 strings); New code file quicklook.js (663.2 KB)</title>
+<link>obsidian-1.13.7-to-1.14.4.md</link>
+<guid isPermaLink="false">obsidian-1.13.7-1.14.4</guid>
+<pubDate>Sun, 25 Oct 2026 15:14:55 GMT</pubDate>
+<description>• New UI string group plugins.bases.kanban (9 strings)
+• Removed UI string group plugins.markdownFormatImporter (15 strings)
+• New code file quicklook.js (663.2 KB)
+• New UI string group interface.formatting.highlightColor (6 strings)
+• New UI string group plugins.bases (6 strings)
+• UI text changed: interface.startScreen.mobile.labelSyncPro3
+• New IPC channel latest-public-version (renderer, sendSync)
+• New IPC channel open-file (renderer, send)
+• New code file quicklook/index.html (0.6 KB)
+• New UI string group commands (4 strings)
+• New command app:decrease-font-size
+• New command app:increase-font-size</description>
+</item>
+</channel></rss>

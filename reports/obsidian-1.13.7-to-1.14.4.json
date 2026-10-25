@@ -1,0 +1,2487 @@
+{
+ "app": "obsidian",
+ "appName": "Obsidian",
+ "oldVersion": "1.13.7",
+ "newVersion": "1.14.4",
+ "reportFile": "obsidian-1.13.7-to-1.14.4.md",
+ "meta": {
+  "notesUsed": [
+   {
+    "version": "1.15.0",
+    "url": "https://obsidian.md/changelog/2026-10-22-desktop-v1.15.0/"
+   },
+   {
+    "version": "1.14.5",
+    "url": "https://obsidian.md/changelog/2026-10-22-desktop-v1.14.5/"
+   },
+   {
+    "version": "1.14.4",
+    "url": "https://obsidian.md/changelog/2026-10-05-desktop-v1.14.4/"
+   },
+   {
+    "version": "1.14.4",
+    "url": "https://obsidian.md/changelog/2026-10-01-desktop-v1.14.4/"
+   },
+   {
+    "version": "1.14.3",
+    "url": "https://obsidian.md/changelog/2026-09-29-desktop-v1.14.3/"
+   },
+   {
+    "version": "1.14.2",
+    "url": "https://obsidian.md/changelog/2026-09-15-desktop-v1.14.2/"
+   },
+   {
+    "version": "1.14.1",
+    "url": "https://obsidian.md/changelog/2026-09-08-desktop-v1.14.1/"
+   },
+   {
+    "version": "1.14.0",
+    "url": "https://obsidian.md/changelog/2026-09-02-desktop-v1.14.0/"
+   },
+   {
+    "version": "1.13.7",
+    "url": "https://obsidian.md/changelog/2026-08-12-desktop-v1.13.7/"
+   },
+   {
+    "version": "1.13.7",
+    "url": "https://obsidian.md/changelog/2026-08-11-desktop-v1.13.7/"
+   }
+  ],
+  "generatedAt": "2026-10-25T15:14:55.558Z",
+  "toolVersion": "0.1.0",
+  "oldSource": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.13.7/obsidian-1.13.7.asar.gz",
+  "newSource": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.14.4/obsidian-1.14.4.asar.gz",
+  "oldDate": "2026-08-12",
+  "newDate": "2026-10-05",
+  "oldFiles": 358,
+  "newFiles": 368
+ },
+ "headline": {
+  "counts": {
+   "telemetry": {
+    "added": 0,
+    "removed": 0,
+    "changed": 0
+   },
+   "apiPaths": {
+    "added": 0,
+    "removed": 0,
+    "changed": 0
+   },
+   "domains": {
+    "added": 0,
+    "removed": 1,
+    "changed": 0
+   },
+   "ipc": {
+    "added": 2,
+    "removed": 0,
+    "changed": 0
+   },
+   "flags": {
+    "added": 0,
+    "removed": 0,
+    "changed": 0
+   },
+   "configKeys": {
+    "added": 1,
+    "removed": 1,
+    "changed": 0
+   },
+   "commands": {
+    "added": 5,
+    "removed": 1,
+    "changed": 0
+   },
+   "i18n": {
+    "added": 33,
+    "removed": 19,
+    "changed": 4
+   },
+   "deps": {
+    "added": 0,
+    "removed": 0,
+    "changed": 0
+   },
+   "urls": {
+    "added": 4,
+    "removed": 24,
+    "changed": 0
+   }
+  },
+  "files": {
+   "added": 36,
+   "removed": 26,
+   "changed": 54
+  }
+ },
+ "top": [
+  {
+   "title": "New UI string group plugins.bases.kanban (9 strings)",
+   "category": "i18n-cluster",
+   "kind": "added",
+   "score": 71,
+   "why": [
+    "9 new UI strings under one prefix",
+    "keywords: kanban"
+   ],
+   "official": "mentioned (matched \"kanban\" in the 1.14.4 (public) notes)",
+   "officialStatus": "mentioned",
+   "strings": [
+    {
+     "key": "plugins.bases.kanban.actionChooseProperty",
+     "text": "Choose property",
+     "referenced": true
+    },
+    {
+     "key": "plugins.bases.kanban.actionEditColumns",
+     "text": "Edit groups...",
+     "referenced": true
+    },
+    {
+     "key": "plugins.bases.kanban.actionHideColumn",
+     "text": "Hide column",
+     "referenced": true
+    },
+    {
+     "key": "plugins.bases.kanban.labelColumnWidth",
+     "text": "Column width",
+     "referenced": true
+    },
+    {
+     "key": "plugins.bases.kanban.name",
+     "text": "Kanban",
+     "referenced": true
+    },
+    {
+     "key": "plugins.bases.kanban.textNoColumns",
+     "text": "Select groups to show as columns.",
+     "referenced": true
+    },
+    {
+     "key": "plugins.bases.kanban.textNoGroupBy",
+     "text": "Choose a property to group by.",
+     "referenced": true
+    },
+    {
+     "key": "plugins.bases.kanban.titleNoColumns",
+     "text": "No columns",
+     "referenced": true
+    },
+    {
+     "key": "plugins.bases.kanban.titleNoGroupBy",
+     "text": "Add columns",
+     "referenced": true
+    }
+   ]
+  },
+  {
+   "title": "Removed UI string group plugins.markdownFormatImporter (15 strings)",
+   "category": "i18n-cluster",
+   "kind": "removed",
+   "score": 58,
+   "why": [
+    "15 UI strings under one prefix were removed"
+   ],
+   "official": "mentioned (matched \"format converter\" in the 1.14.4 (public) notes)",
+   "officialStatus": "mentioned",
+   "strings": [
+    {
+     "key": "plugins.markdownFormatImporter.actionOpen",
+     "text": "Open format converter",
+     "referenced": true
+    },
+    {
+     "key": "plugins.markdownFormatImporter.desc",
+     "text": "Convert Markdown from other apps to Obsidian format.",
+     "referenced": true
+    },
+    {
+     "key": "plugins.markdownFormatImporter.labelTotalReplacements",
+     "text": "Total replacements",
+     "referenced": true
+    },
+    {
+     "key": "plugins.markdownFormatImporter.optionBearHighlightFixer",
+     "text": "Bear highlight fixer",
+     "referenced": true
+    },
+    {
+     "key": "plugins.markdownFormatImporter.optionBearHighlightFixerDescription",
+     "text": "Converts “::highlight::” to “==highlight==”.",
+     "referenced": true
+    },
+    {
+     "key": "plugins.markdownFormatImporter.optionRoamHighlightFixer",
+     "text": "Roam Research highlight fixer",
+     "referenced": true
+    },
+    {
+     "key": "plugins.markdownFormatImporter.optionRoamHighlightFixerDescription",
+     "text": "Converts “^^highlight^^” to “==highlight==”.",
+     "referenced": true
+    },
+    {
+     "key": "plugins.markdownFormatImporter.optionRoamTagFixer",
+     "text": "Roam Research tag fixer",
+     "referenced": true
+    },
+    {
+     "key": "plugins.markdownFormatImporter.optionRoamTagFixerDescription",
+     "text": "Converts “#tag” and “#[[tag]]” to “[[tag]]”.",
+     "referenced": true
+    },
+    {
+     "key": "plugins.markdownFormatImporter.optionRoamTodoConverter",
+     "text": "Roam Research TODO converter",
+     "referenced": true
+    },
+    {
+     "key": "plugins.markdownFormatImporter.optionRoamTodoConverterDescription",
+     "text": "Converts “{{[[TODO]]}}” to “[ ]”.",
+     "referenced": true
+    },
+    {
+     "key": "plugins.markdownFormatImporter.zettelkastenLinkBeautifier",
+     "text": "Zettelkasten link beautifier",
+     "referenced": true
+    },
+    {
+     "key": "plugins.markdownFormatImporter.zettelkastenLinkBeautifierDescription",
+     "text": "Fixes “[[UID]]” links and also beautify them “[[UID File Name|File Name]]”.",
+     "referenced": true
+    },
+    {
+     "key": "plugins.markdownFormatImporter.zettelkastenLinkFixer",
+     "text": "Zettelkasten link fixer",
+     "referenced": true
+    },
+    {
+     "key": "plugins.markdownFormatImporter.zettelkastenLinkFixerDescription",
+     "text": "Fixes “[[UID]]” links to full “[[UID File Name]]”.",
+     "referenced": true
+    }
+   ]
+  },
+  {
+   "title": "New code file quicklook.js (663.2 KB)",
+   "category": "file",
+   "kind": "added",
+   "score": 50,
+   "why": [
+    "new first-party code file",
+    "referenced from main.js, quicklook/index.html"
+   ],
+   "official": "mentioned (matched \"quicklook\" in the 1.14.4 (public) notes)",
+   "officialStatus": "mentioned"
+  },
+  {
+   "title": "New UI string group interface.formatting.highlightColor (6 strings)",
+   "category": "i18n-cluster",
+   "kind": "added",
+   "score": 49,
+   "why": [
+    "6 new UI strings under one prefix"
+   ],
+   "official": "mentioned (matched \"highlightColor\" in the 1.14.4 (public) notes)",
+   "officialStatus": "mentioned",
+   "strings": [
+    {
+     "key": "interface.formatting.highlightColor.blue",
+     "text": "Blue",
+     "referenced": true
+    },
+    {
+     "key": "interface.formatting.highlightColor.green",
+     "text": "Green",
+     "referenced": true
+    },
+    {
+     "key": "interface.formatting.highlightColor.orange",
+     "text": "Orange",
+     "referenced": true
+    },
+    {
+     "key": "interface.formatting.highlightColor.purple",
+     "text": "Purple",
+     "referenced": true
+    },
+    {
+     "key": "interface.formatting.highlightColor.red",
+     "text": "Red",
+     "referenced": true
+    },
+    {
+     "key": "interface.formatting.highlightColor.yellow",
+     "text": "Yellow",
+     "referenced": true
+    }
+   ]
+  },
+  {
+   "title": "New UI string group plugins.bases (6 strings)",
+   "category": "i18n-cluster",
+   "kind": "added",
+   "score": 49,
+   "why": [
+    "6 new UI strings under one prefix"
+   ],
+   "official": "mentioned (matched \"Add group\" in the 1.14.4 (public) notes)",
+   "officialStatus": "mentioned",
+   "strings": [
+    {
+     "key": "plugins.bases.actionAddGroup",
+     "text": "Add group",
+     "referenced": true
+    },
+    {
+     "key": "plugins.bases.labelDisplay",
+     "text": "Display",
+     "referenced": true
+    },
+    {
+     "key": "plugins.bases.labelGroup",
+     "text": "Group",
+     "referenced": true
+    },
+    {
+     "key": "plugins.bases.labelResults",
+     "text": "Results",
+     "referenced": true
+    },
+    {
+     "key": "plugins.bases.labelSortManual",
+     "text": "Manual",
+     "referenced": true
+    },
+    {
+     "key": "plugins.bases.msgErrorUnknownPropertyType",
+     "text": "Unknown property type: {{ type }}",
+     "referenced": true
+    }
+   ]
+  },
+  {
+   "title": "UI text changed: interface.startScreen.mobile.labelSyncPro3",
+   "category": "i18n",
+   "kind": "changed",
+   "score": 48,
+   "why": [
+    "keywords: sync, subscription",
+    "wording change touches: account, subscription"
+   ],
+   "official": "not found in the notes for 1.13.7→1.14.4 (searched for: \"Requires a paid subscription.\")",
+   "officialStatus": "absent",
+   "evidence": [
+    {
+     "file": "i18n.js",
+     "line": 0,
+     "snippet": "interface.startScreen.mobile.labelSyncPro3 = \"Requires a paid subscription.\""
+    }
+   ]
+  },
+  {
+   "title": "New IPC channel latest-public-version (renderer, sendSync)",
+   "category": "ipc",
+   "kind": "added",
+   "score": 45,
+   "why": [],
+   "official": "not found in the notes for 1.13.7→1.14.4 (searched for: \"latest public version\")",
+   "officialStatus": "absent",
+   "evidence": [
+    {
+     "file": "main.js",
+     "line": 5284,
+     "snippet": "}), l.ipcMain.on(\"latest-public-version\", o => {"
+    },
+    {
+     "file": "app.js",
+     "line": 136441,
+     "snippet": "var n = t.ipcRenderer.sendSync(\"latest-public-version\");"
+    }
+   ]
+  },
+  {
+   "title": "New IPC channel open-file (renderer, send)",
+   "category": "ipc",
+   "kind": "added",
+   "score": 45,
+   "why": [],
+   "official": "mentioned (matched \"open file\" in the 1.14.4 (public) notes)",
+   "officialStatus": "mentioned",
+   "evidence": [
+    {
+     "file": "main.js",
+     "line": 5441,
+     "snippet": "}), l.ipcMain.on(\"open-file\", async (o, i) => {"
+    },
+    {
+     "file": "app.js",
+     "line": 148850,
+     "snippet": "activeWindow.electron.ipcRenderer.send(\"open-file\", t)"
+    }
+   ]
+  },
+  {
+   "title": "New code file quicklook/index.html (0.6 KB)",
+   "category": "file",
+   "kind": "added",
+   "score": 45,
+   "why": [
+    "new first-party code file",
+    "referenced from app.js, main.js, package.json"
+   ],
+   "official": "mentioned (matched \"quicklook\" in the 1.14.4 (public) notes)",
+   "officialStatus": "mentioned"
+  },
+  {
+   "title": "New UI string group commands (4 strings)",
+   "category": "i18n-cluster",
+   "kind": "added",
+   "score": 41,
+   "why": [
+    "4 new UI strings under one prefix"
+   ],
+   "official": "mentioned (matched \"Decrease font size\" in the 1.14.4 (public) notes)",
+   "officialStatus": "mentioned",
+   "strings": [
+    {
+     "key": "commands.decreaseFontSize",
+     "text": "Decrease font size",
+     "referenced": true
+    },
+    {
+     "key": "commands.increaseFontSize",
+     "text": "Increase font size",
+     "referenced": true
+    },
+    {
+     "key": "commands.openFile",
+     "text": "Open file from outside the vault...",
+     "referenced": true
+    },
+    {
+     "key": "commands.toggleHighlightColor",
+     "text": "Toggle {{color, lowercase}} highlight",
+     "referenced": true
+    }
+   ]
+  },
+  {
+   "title": "New command app:decrease-font-size",
+   "category": "commands",
+   "kind": "added",
+   "score": 35,
+   "why": [],
+   "official": "mentioned (matched \"decrease font size\" in the 1.14.4 (public) notes)",
+   "officialStatus": "mentioned",
+   "evidence": [
+    {
+     "file": "app.js",
+     "line": 148834,
+     "snippet": "id: \"app:decrease-font-size\","
+    }
+   ]
+  },
+  {
+   "title": "New command app:increase-font-size",
+   "category": "commands",
+   "kind": "added",
+   "score": 35,
+   "why": [],
+   "official": "mentioned (matched \"increase font size\" in the 1.14.4 (public) notes)",
+   "officialStatus": "mentioned",
+   "evidence": [
+    {
+     "file": "app.js",
+     "line": 148828,
+     "snippet": "id: \"app:increase-font-size\","
+    }
+   ]
+  }
+ ],
+ "categories": {
+  "telemetry": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "apiPaths": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "domains": {
+   "added": [],
+   "removed": [
+    {
+     "value": "help.obsidian.md",
+     "score": 31,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 51520,
+       "snippet": "window.open(\"https://help.obsidian.md/sync-notes\", \"_blank\")"
+      },
+      {
+       "file": "app.js",
+       "line": 136773,
+       "snippet": "href: \"https://help.obsidian.md/sync/switch\","
+      }
+     ]
+    }
+   ],
+   "changed": []
+  },
+  "ipc": {
+   "added": [
+    {
+     "value": "latest-public-version",
+     "score": 45,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "main.js",
+       "line": 5284,
+       "snippet": "}), l.ipcMain.on(\"latest-public-version\", o => {"
+      },
+      {
+       "file": "app.js",
+       "line": 136441,
+       "snippet": "var n = t.ipcRenderer.sendSync(\"latest-public-version\");"
+      }
+     ]
+    },
+    {
+     "value": "open-file",
+     "score": 45,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "main.js",
+       "line": 5441,
+       "snippet": "}), l.ipcMain.on(\"open-file\", async (o, i) => {"
+      },
+      {
+       "file": "app.js",
+       "line": 148850,
+       "snippet": "activeWindow.electron.ipcRenderer.send(\"open-file\", t)"
+      }
+     ]
+    }
+   ],
+   "removed": [],
+   "changed": []
+  },
+  "flags": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "configKeys": {
+   "added": [
+    {
+     "value": "base-font-size",
+     "score": 30,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 149324,
+       "snippet": "this.saveLocalStorage(\"base-font-size\", Math.clamp(e, 10, 30)), this.updateFontSize()"
+      },
+      {
+       "file": "app.js",
+       "line": 149322,
+       "snippet": "… void 0 !== (e = this.vault.getConfig(\"baseFontSize\")) && this.saveLocalStorage(\"base-font-size\", e), e = null != e ? e : voe, Math.clamp(e, 10, 30)"
+      }
+     ]
+    }
+   ],
+   "removed": [
+    {
+     "value": "spellcheckLanguages",
+     "score": 21,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 147072,
+       "snippet": "this.vault.getConfig(\"spellcheckLanguages\") && this.vault.setConfig(\"spellcheckLanguages\", null), e && e.length > 0 ? localStorage.setItem(\"spellcheck-languages…"
+      },
+      {
+       "file": "app.js",
+       "line": 147066,
+       "snippet": "if (t && e && this.vault.setConfig(\"spellcheckLanguages\", null), t) try {"
+      }
+     ]
+    }
+   ],
+   "changed": []
+  },
+  "commands": {
+   "added": [
+    {
+     "value": "app:decrease-font-size",
+     "score": 35,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 148834,
+       "snippet": "id: \"app:decrease-font-size\","
+      }
+     ]
+    },
+    {
+     "value": "app:increase-font-size",
+     "score": 35,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 148828,
+       "snippet": "id: \"app:increase-font-size\","
+      }
+     ]
+    },
+    {
+     "value": "app:migrate-frontmatter",
+     "score": 35,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 148815,
+       "snippet": "id: \"app:migrate-frontmatter\","
+      }
+     ]
+    },
+    {
+     "value": "app:open-file",
+     "score": 35,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 148846,
+       "snippet": "id: \"app:open-file\","
+      }
+     ]
+    },
+    {
+     "value": "editor:toggle-highlight-",
+     "score": 35,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 79646,
+       "snippet": "id: \"editor:toggle-highlight-\".concat(e),"
+      }
+     ]
+    }
+   ],
+   "removed": [
+    {
+     "value": "markdown-importer:open",
+     "score": 25,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 130854,
+       "snippet": "id: \"markdown-importer:open\","
+      }
+     ]
+    }
+   ],
+   "changed": []
+  },
+  "i18n": {
+   "added": [
+    {
+     "value": "plugins.bases.kanban.actionChooseProperty",
+     "score": 30,
+     "text": "Choose property",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.bases.kanban.actionChooseProperty = \"Choose property\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.bases.kanban.actionEditColumns",
+     "score": 30,
+     "text": "Edit groups...",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.bases.kanban.actionEditColumns = \"Edit groups...\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.bases.kanban.actionHideColumn",
+     "score": 30,
+     "text": "Hide column",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.bases.kanban.actionHideColumn = \"Hide column\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.bases.kanban.labelColumnWidth",
+     "score": 30,
+     "text": "Column width",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.bases.kanban.labelColumnWidth = \"Column width\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.bases.kanban.name",
+     "score": 30,
+     "text": "Kanban",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.bases.kanban.name = \"Kanban\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.bases.kanban.textNoColumns",
+     "score": 30,
+     "text": "Select groups to show as columns.",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.bases.kanban.textNoColumns = \"Select groups to show as columns.\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.bases.kanban.textNoGroupBy",
+     "score": 30,
+     "text": "Choose a property to group by.",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.bases.kanban.textNoGroupBy = \"Choose a property to group by.\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.bases.kanban.titleNoColumns",
+     "score": 30,
+     "text": "No columns",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.bases.kanban.titleNoColumns = \"No columns\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.bases.kanban.titleNoGroupBy",
+     "score": 30,
+     "text": "Add columns",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.bases.kanban.titleNoGroupBy = \"Add columns\""
+      }
+     ]
+    },
+    {
+     "value": "setting.account.titleLogIn",
+     "score": 30,
+     "text": "Log in to Obsidian",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "setting.account.titleLogIn = \"Log in to Obsidian\""
+      }
+     ]
+    },
+    {
+     "value": "setting.mobileToolbar.optionAttachCamera",
+     "score": 30,
+     "text": "Take photo",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "setting.mobileToolbar.optionAttachCamera = \"Take photo\""
+      }
+     ]
+    },
+    {
+     "value": "commands.decreaseFontSize",
+     "score": 15,
+     "text": "Decrease font size",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "commands.decreaseFontSize = \"Decrease font size\""
+      }
+     ]
+    },
+    {
+     "value": "commands.increaseFontSize",
+     "score": 15,
+     "text": "Increase font size",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "commands.increaseFontSize = \"Increase font size\""
+      }
+     ]
+    },
+    {
+     "value": "commands.openFile",
+     "score": 15,
+     "text": "Open file from outside the vault...",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "commands.openFile = \"Open file from outside the vault...\""
+      }
+     ]
+    },
+    {
+     "value": "commands.toggleHighlightColor",
+     "score": 15,
+     "text": "Toggle {{color, lowercase}} highlight",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "commands.toggleHighlightColor = \"Toggle {{color, lowercase}} highlight\""
+      }
+     ]
+    },
+    {
+     "value": "dialogue.msgUnsupportedFileType",
+     "score": 15,
+     "text": "Obsidian can’t open “.{{extension}}” files.",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "dialogue.msgUnsupportedFileType = \"Obsidian can’t open “.{{extension}}” files.\""
+      }
+     ]
+    },
+    {
+     "value": "interface.formatting.highlightColor.blue",
+     "score": 15,
+     "text": "Blue",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "interface.formatting.highlightColor.blue = \"Blue\""
+      }
+     ]
+    },
+    {
+     "value": "interface.formatting.highlightColor.green",
+     "score": 15,
+     "text": "Green",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "interface.formatting.highlightColor.green = \"Green\""
+      }
+     ]
+    },
+    {
+     "value": "interface.formatting.highlightColor.orange",
+     "score": 15,
+     "text": "Orange",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "interface.formatting.highlightColor.orange = \"Orange\""
+      }
+     ]
+    },
+    {
+     "value": "interface.formatting.highlightColor.purple",
+     "score": 15,
+     "text": "Purple",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "interface.formatting.highlightColor.purple = \"Purple\""
+      }
+     ]
+    },
+    {
+     "value": "interface.formatting.highlightColor.red",
+     "score": 15,
+     "text": "Red",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "interface.formatting.highlightColor.red = \"Red\""
+      }
+     ]
+    },
+    {
+     "value": "interface.formatting.highlightColor.yellow",
+     "score": 15,
+     "text": "Yellow",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "interface.formatting.highlightColor.yellow = \"Yellow\""
+      }
+     ]
+    },
+    {
+     "value": "interface.formatting.highlightColorDefault",
+     "score": 15,
+     "text": "Default",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "interface.formatting.highlightColorDefault = \"Default\""
+      }
+     ]
+    },
+    {
+     "value": "interface.msgFailedToExport",
+     "score": 15,
+     "text": "Failed to export “{{filename}}”",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "interface.msgFailedToExport = \"Failed to export “{{filename}}”\""
+      }
+     ]
+    },
+    {
+     "value": "main.supportedFiles",
+     "score": 15,
+     "text": "Supported files",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "main.supportedFiles = \"Supported files\""
+      }
+     ]
+    },
+    {
+     "value": "menuItems.openFile",
+     "score": 15,
+     "text": "Open File...",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "menuItems.openFile = \"Open File...\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.bases.actionAddGroup",
+     "score": 15,
+     "text": "Add group",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.bases.actionAddGroup = \"Add group\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.bases.labelDisplay",
+     "score": 15,
+     "text": "Display",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.bases.labelDisplay = \"Display\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.bases.labelGroup",
+     "score": 15,
+     "text": "Group",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.bases.labelGroup = \"Group\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.bases.labelResults",
+     "score": 15,
+     "text": "Results",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.bases.labelResults = \"Results\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.bases.labelSortManual",
+     "score": 15,
+     "text": "Manual",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.bases.labelSortManual = \"Manual\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.bases.msgErrorUnknownPropertyType",
+     "score": 15,
+     "text": "Unknown property type: {{ type }}",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.bases.msgErrorUnknownPropertyType = \"Unknown property type: {{ type }}\""
+      }
+     ]
+    },
+    {
+     "value": "setting.mobileToolbar.optionAttachFile",
+     "score": 15,
+     "text": "Choose file",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "setting.mobileToolbar.optionAttachFile = \"Choose file\""
+      }
+     ]
+    }
+   ],
+   "removed": [
+    {
+     "value": "interface.emptyState.createNewFile",
+     "score": 11,
+     "text": "Create new note",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "interface.emptyState.createNewFile = \"Create new note\""
+      }
+     ]
+    },
+    {
+     "value": "interface.window.goBack",
+     "score": 11,
+     "text": "Go back",
+     "referenced": false,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "interface.window.goBack = \"Go back\""
+      }
+     ]
+    },
+    {
+     "value": "interface.window.goForward",
+     "score": 11,
+     "text": "Go forward",
+     "referenced": false,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "interface.window.goForward = \"Go forward\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.bases.labelViewTypeTable",
+     "score": 11,
+     "text": "Table",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.bases.labelViewTypeTable = \"Table\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.markdownFormatImporter.actionOpen",
+     "score": 11,
+     "text": "Open format converter",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.markdownFormatImporter.actionOpen = \"Open format converter\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.markdownFormatImporter.desc",
+     "score": 11,
+     "text": "Convert Markdown from other apps to Obsidian format.",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.markdownFormatImporter.desc = \"Convert Markdown from other apps to Obsidian format.\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.markdownFormatImporter.labelTotalReplacements",
+     "score": 11,
+     "text": "Total replacements",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.markdownFormatImporter.labelTotalReplacements = \"Total replacements\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.markdownFormatImporter.optionBearHighlightFixer",
+     "score": 11,
+     "text": "Bear highlight fixer",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.markdownFormatImporter.optionBearHighlightFixer = \"Bear highlight fixer\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.markdownFormatImporter.optionBearHighlightFixerDescription",
+     "score": 11,
+     "text": "Converts “::highlight::” to “==highlight==”.",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.markdownFormatImporter.optionBearHighlightFixerDescription = \"Converts “::highlight::” to “==highlight==”.\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.markdownFormatImporter.optionRoamHighlightFixer",
+     "score": 11,
+     "text": "Roam Research highlight fixer",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.markdownFormatImporter.optionRoamHighlightFixer = \"Roam Research highlight fixer\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.markdownFormatImporter.optionRoamHighlightFixerDescription",
+     "score": 11,
+     "text": "Converts “^^highlight^^” to “==highlight==”.",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.markdownFormatImporter.optionRoamHighlightFixerDescription = \"Converts “^^highlight^^” to “==highlight==”.\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.markdownFormatImporter.optionRoamTagFixer",
+     "score": 11,
+     "text": "Roam Research tag fixer",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.markdownFormatImporter.optionRoamTagFixer = \"Roam Research tag fixer\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.markdownFormatImporter.optionRoamTagFixerDescription",
+     "score": 11,
+     "text": "Converts “#tag” and “#[[tag]]” to “[[tag]]”.",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.markdownFormatImporter.optionRoamTagFixerDescription = \"Converts “#tag” and “#[[tag]]” to “[[tag]]”.\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.markdownFormatImporter.optionRoamTodoConverter",
+     "score": 11,
+     "text": "Roam Research TODO converter",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.markdownFormatImporter.optionRoamTodoConverter = \"Roam Research TODO converter\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.markdownFormatImporter.optionRoamTodoConverterDescription",
+     "score": 11,
+     "text": "Converts “{{[[TODO]]}}” to “[ ]”.",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.markdownFormatImporter.optionRoamTodoConverterDescription = \"Converts “{{[[TODO]]}}” to “[ ]”.\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.markdownFormatImporter.zettelkastenLinkBeautifier",
+     "score": 11,
+     "text": "Zettelkasten link beautifier",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.markdownFormatImporter.zettelkastenLinkBeautifier = \"Zettelkasten link beautifier\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.markdownFormatImporter.zettelkastenLinkBeautifierDescription",
+     "score": 11,
+     "text": "Fixes “[[UID]]” links and also beautify them “[[UID File Name|File Name]]”.",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.markdownFormatImporter.zettelkastenLinkBeautifierDescription = \"Fixes “[[UID]]” links and also beautify them “[[UID File Name|File Name]]”.\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.markdownFormatImporter.zettelkastenLinkFixer",
+     "score": 11,
+     "text": "Zettelkasten link fixer",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.markdownFormatImporter.zettelkastenLinkFixer = \"Zettelkasten link fixer\""
+      }
+     ]
+    },
+    {
+     "value": "plugins.markdownFormatImporter.zettelkastenLinkFixerDescription",
+     "score": 11,
+     "text": "Fixes “[[UID]]” links to full “[[UID File Name]]”.",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "plugins.markdownFormatImporter.zettelkastenLinkFixerDescription = \"Fixes “[[UID]]” links to full “[[UID File Name]]”.\""
+      }
+     ]
+    }
+   ],
+   "changed": [
+    {
+     "value": "interface.startScreen.mobile.labelSyncPro3",
+     "score": 48,
+     "before": "Requires an Obsidian account.",
+     "after": "Requires a paid subscription.",
+     "text": "Requires a paid subscription.",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "interface.startScreen.mobile.labelSyncPro3 = \"Requires a paid subscription.\""
+      }
+     ]
+    },
+    {
+     "value": "dialogue.labelPermanentDelete",
+     "score": 12,
+     "before": "The file will be permanent deleted.",
+     "after": "The file will be permanently deleted.",
+     "text": "The file will be permanently deleted.",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "dialogue.labelPermanentDelete = \"The file will be permanently deleted.\""
+      }
+     ]
+    },
+    {
+     "value": "interface.starterContent.welcomeFileContent",
+     "score": 12,
+     "before": "This is your new *vault*.\n\nMake a note of something, [[create a link]], or try [the Importer](https://help.obsidian.md/Plugins/Importer)!\n\nWhen you're ready, delete this note and make the vault your own.",
+     "after": "This is your new *vault*.\n\nMake a note of something, [[create a link]], or try [the Importer](obsidian://show-plugin?id=obsidian-importer)!\n\nWhen you're ready, delete this note and make the vault your own.",
+     "text": "This is your new *vault*.\n\nMake a note of something, [[create a link]], or try [the Importer](obsidian://show-plugin?id=obsidian-importer)!\n\nWhen you're ready, delete this note and make the vault your own.",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "interface.starterContent.welcomeFileContent = \"This is your new *vault*.\n\nMake a note of something, [[create a link]], or try [the Importer](obsidian://show-plugin?id=obsidian-importer)!\n\""
+      }
+     ]
+    },
+    {
+     "value": "setting.account.buttonLogin",
+     "score": 7,
+     "before": "Login",
+     "after": "Log in",
+     "text": "Log in",
+     "referenced": true,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "i18n.js",
+       "line": 0,
+       "snippet": "setting.account.buttonLogin = \"Log in\""
+      }
+     ]
+    }
+   ]
+  },
+  "deps": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "urls": {
+   "added": [
+    {
+     "value": "https://obsidian.md/",
+     "score": 20,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "help.js",
+       "line": 333,
+       "snippet": "M = \"en\" === t ? \"https://obsidian.md/help\" : \"https://obsidian.md/\".concat(t, \"/help\"),"
+      },
+      {
+       "file": "app.js",
+       "line": 35046,
+       "snippet": "i = \"en\" === n ? \"https://obsidian.md/help\" : \"https://obsidian.md/\".concat(n, \"/help\"),"
+      }
+     ]
+    },
+    {
+     "value": "https://obsidian.md/$",
+     "score": 20,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "main.js",
+       "line": 3776,
+       "snippet": "u = a === \"en\" ? \"https://obsidian.md/help\" : `https://obsidian.md/${a}/help`,"
+      },
+      {
+       "file": "main.js",
+       "line": 3769,
+       "snippet": "u = a === \"en\" ? \"https://obsidian.md\" : `https://obsidian.md/${a}`,"
+      }
+     ]
+    },
+    {
+     "value": "https://obsidian.md/changelog/desktop/",
+     "score": 20,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 110569,
+       "snippet": "t = \"https://obsidian.md/changelog/desktop/\".concat(e, \".md\"), i.label = 1;"
+      }
+     ]
+    },
+    {
+     "value": "https://obsidian.md/help",
+     "score": 20,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "main.js",
+       "line": 3776,
+       "snippet": "u = a === \"en\" ? \"https://obsidian.md/help\" : `https://obsidian.md/${a}/help`,"
+      },
+      {
+       "file": "help.js",
+       "line": 333,
+       "snippet": "M = \"en\" === t ? \"https://obsidian.md/help\" : \"https://obsidian.md/\".concat(t, \"/help\"),"
+      }
+     ]
+    }
+   ],
+   "removed": [
+    {
+     "value": "http://obsidian.md/account",
+     "score": 25,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 134309,
+       "snippet": "return window.open(\"http://obsidian.md/account\", \"_blank\")"
+      }
+     ]
+    },
+    {
+     "value": "https://help.obsidian.md/Catalyst+license",
+     "score": 25,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 133814,
+       "snippet": "href: \"https://help.obsidian.md/Catalyst+license\","
+      }
+     ]
+    },
+    {
+     "value": "https://help.obsidian.md/cli",
+     "score": 25,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 133662,
+       "snippet": "href: \"https://help.obsidian.md/cli\","
+      }
+     ]
+    },
+    {
+     "value": "https://help.obsidian.md/Commercial+license",
+     "score": 25,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 133997,
+       "snippet": "href: \"https://help.obsidian.md/Commercial+license\","
+      },
+      {
+       "file": "app.js",
+       "line": 133868,
+       "snippet": "href: \"https://help.obsidian.md/Commercial+license\","
+      }
+     ]
+    },
+    {
+     "value": "https://help.obsidian.md/Obsidian+Publish/Set+up+a+custom+domain",
+     "score": 25,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 135549,
+       "snippet": "link: '<a href=\"https://help.obsidian.md/Obsidian+Publish/Set+up+a+custom+domain\" target=\"_blank\">'.concat(Uee.labelCustomDomainLinkName(), \"</a>\")"
+      }
+     ]
+    },
+    {
+     "value": "https://help.obsidian.md/sync-notes",
+     "score": 25,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 51520,
+       "snippet": "window.open(\"https://help.obsidian.md/sync-notes\", \"_blank\")"
+      }
+     ]
+    },
+    {
+     "value": "https://help.obsidian.md/sync/migrate",
+     "score": 25,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 137627,
+       "snippet": "href: \"https://help.obsidian.md/sync/migrate\","
+      }
+     ]
+    },
+    {
+     "value": "https://help.obsidian.md/sync/switch",
+     "score": 25,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 136773,
+       "snippet": "href: \"https://help.obsidian.md/sync/switch\","
+      },
+      {
+       "file": "app.js",
+       "line": 136756,
+       "snippet": "href: \"https://help.obsidian.md/sync/switch\","
+      }
+     ]
+    },
+    {
+     "value": "https://help.obsidian.md/sync/troubleshoot",
+     "score": 25,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 139669,
+       "snippet": "…ming Sync may delete all files from your remote vault. See https://help.obsidian.md/sync/troubleshoot for more details.\")), a = (o = this).serverFiles, s = o.lo…"
+      }
+     ]
+    },
+    {
+     "value": "https://obsidian.md/account",
+     "score": 25,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 133807,
+       "snippet": "window.open(\"https://obsidian.md/account\")"
+      },
+      {
+       "file": "app.js",
+       "line": 133781,
+       "snippet": "window.open(\"https://obsidian.md/account\")"
+      }
+     ]
+    },
+    {
+     "value": "https://obsidian.md/auth",
+     "score": 25,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 137087,
+       "snippet": "url: \"https://obsidian.md/auth#signup\""
+      },
+      {
+       "file": "app.js",
+       "line": 133835,
+       "snippet": "}) : window.open(\"https://obsidian.md/auth#signup\")"
+      }
+     ]
+    },
+    {
+     "value": "https://obsidian.md/sync",
+     "score": 25,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 137883,
+       "snippet": "href: \"https://obsidian.md/sync\","
+      }
+     ]
+    },
+    {
+     "value": "https://help.obsidian.md/",
+     "score": 14,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "main.js",
+       "line": 4737,
+       "snippet": "click: () => l.shell.openExternal(\"https://help.obsidian.md/\")"
+      },
+      {
+       "file": "help.js",
+       "line": 13612,
+       "snippet": "electron.shell.openExternal(\"https://help.obsidian.md/\")"
+      }
+     ]
+    },
+    {
+     "value": "https://help.obsidian.md/bases/functions",
+     "score": 14,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 97586,
+       "snippet": "window.open(\"https://help.obsidian.md/bases/functions\", \"_blank\")"
+      }
+     ]
+    },
+    {
+     "value": "https://help.obsidian.md/Extending+Obsidian/Obsidian+URI",
+     "score": 14,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 143798,
+       "snippet": "href: \"https://help.obsidian.md/Extending+Obsidian/Obsidian+URI#Use+x-callback-url+parameters\","
+      }
+     ]
+    },
+    {
+     "value": "https://help.obsidian.md/Files+and+folders/How+Obsidian+stores+data",
+     "score": 14,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 143818,
+       "snippet": "href: \"https://help.obsidian.md/Files+and+folders/How+Obsidian+stores+data#Metadata+cache\","
+      }
+     ]
+    },
+    {
+     "value": "https://help.obsidian.md/plugin-security",
+     "score": 14,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 142857,
+       "snippet": "href: \"https://help.obsidian.md/plugin-security\","
+      }
+     ]
+    },
+    {
+     "value": "https://help.obsidian.md/Plugins/Importer)!",
+     "score": 14,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "main.js",
+       "line": 1747,
+       "snippet": "…te of something, [[create a link]], or try [the Importer](https://help.obsidian.md/Plugins/Importer)!"
+      },
+      {
+       "file": "i18n.js",
+       "line": 914,
+       "snippet": "…te of something, [[create a link]], or try [the Importer](https://help.obsidian.md/Plugins/Importer)!\\n\\nWhen you're ready, delete this note and make the vault …"
+      }
+     ]
+    },
+    {
+     "value": "https://help.obsidian.md/Plugins/Search",
+     "score": 14,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 104712,
+       "snippet": "window.open(\"https://help.obsidian.md/Plugins/Search\", \"_blank\")"
+      },
+      {
+       "file": "app.js",
+       "line": 104680,
+       "snippet": "window.open(\"https://help.obsidian.md/Plugins/Search\", \"_blank\")"
+      }
+     ]
+    },
+    {
+     "value": "https://help.obsidian.md/Translations",
+     "score": 14,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 133565,
+       "snippet": "href: \"https://help.obsidian.md/Translations\","
+      }
+     ]
+    },
+    {
+     "value": "https://obsidian.md/changelog",
+     "score": 14,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 133756,
+       "snippet": "href: \"https://obsidian.md/changelog\","
+      },
+      {
+       "file": "app.js",
+       "line": 133740,
+       "snippet": "href: \"https://obsidian.md/changelog\","
+      }
+     ]
+    },
+    {
+     "value": "https://obsidian.md/community",
+     "score": 14,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "main.js",
+       "line": 4734,
+       "snippet": "click: () => l.shell.openExternal(\"https://obsidian.md/community\")"
+      }
+     ]
+    },
+    {
+     "value": "https://obsidian.md/download",
+     "score": 14,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "main.js",
+       "line": 4036,
+       "snippet": "… download the latest installer which includes better CLI support: https://obsidian.md/download\"), W && l.app.dock.hide(), e.emit(\"disable\", !0), e.emit(\"silence…"
+      },
+      {
+       "file": "main.js",
+       "line": 4018,
+       "snippet": "… latest version from https://obsidian.md\"), l.shell.openExternal(\"https://obsidian.md/download\"), l.app.quit();"
+      }
+     ]
+    },
+    {
+     "value": "https://obsidian.md/help/snippets",
+     "score": 14,
+     "vendorOnly": false,
+     "evidence": [
+      {
+       "file": "app.js",
+       "line": 142328,
+       "snippet": "href: \"https://obsidian.md/help/snippets\","
+      }
+     ]
+    }
+   ],
+   "changed": []
+  }
+ },
+ "files": {
+  "added": [
+   {
+    "file": "i18n/bg.txt",
+    "size": 156569,
+    "referencedBy": []
+   },
+   {
+    "file": "i18n/el.txt",
+    "size": 159867,
+    "referencedBy": []
+   },
+   {
+    "file": "i18n/gl.txt",
+    "size": 87163,
+    "referencedBy": []
+   },
+   {
+    "file": "i18n/kab.txt",
+    "size": 84835,
+    "referencedBy": []
+   },
+   {
+    "file": "i18n/km.txt",
+    "size": 204384,
+    "referencedBy": []
+   },
+   {
+    "file": "i18n/sa.txt",
+    "size": 215692,
+    "referencedBy": []
+   },
+   {
+    "file": "i18n/si.txt",
+    "size": 200310,
+    "referencedBy": []
+   },
+   {
+    "file": "i18n/ta.txt",
+    "size": 214669,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/mhchem-font-extension/chtml/woff2/mjx-mhc-m.woff2",
+    "size": 2400,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/mhchem-font-extension/chtml/woff2/mjx-mhc-n.woff2",
+    "size": 916,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/obsidian-mathjax.js",
+    "size": 1139224,
+    "referencedBy": [
+     "app.js",
+     "quicklook.js"
+    ]
+   },
+   {
+    "file": "lib/mathjax/tex-font/chtml/woff2/mjx-tex-b.woff2",
+    "size": 19340,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/tex-font/chtml/woff2/mjx-tex-bi.woff2",
+    "size": 1484,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/tex-font/chtml/woff2/mjx-tex-brk.woff2",
+    "size": 980,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/tex-font/chtml/woff2/mjx-tex-c.woff2",
+    "size": 6644,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/tex-font/chtml/woff2/mjx-tex-cb.woff2",
+    "size": 7064,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/tex-font/chtml/woff2/mjx-tex-f.woff2",
+    "size": 5932,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/tex-font/chtml/woff2/mjx-tex-fb.woff2",
+    "size": 6180,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/tex-font/chtml/woff2/mjx-tex-i.woff2",
+    "size": 7472,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/tex-font/chtml/woff2/mjx-tex-lo.woff2",
+    "size": 5160,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/tex-font/chtml/woff2/mjx-tex-m.woff2",
+    "size": 8552,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/tex-font/chtml/woff2/mjx-tex-mi.woff2",
+    "size": 9676,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/tex-font/chtml/woff2/mjx-tex-n.woff2",
+    "size": 164864,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/tex-font/chtml/woff2/mjx-tex-ob.woff2",
+    "size": 8412,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/tex-font/chtml/woff2/mjx-tex-os.woff2",
+    "size": 8164,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/tex-font/chtml/woff2/mjx-tex-s3.woff2",
+    "size": 2560,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/tex-font/chtml/woff2/mjx-tex-s4.woff2",
+    "size": 4352,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/tex-font/chtml/woff2/mjx-tex-so.woff2",
+    "size": 6472,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/tex-font/chtml/woff2/mjx-tex-ss.woff2",
+    "size": 6168,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/tex-font/chtml/woff2/mjx-tex-ssb.woff2",
+    "size": 4896,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/tex-font/chtml/woff2/mjx-tex-ssi.woff2",
+    "size": 8472,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/tex-font/chtml/woff2/mjx-tex-v.woff2",
+    "size": 6716,
+    "referencedBy": []
+   },
+   {
+    "file": "lib/mathjax/tex-font/chtml/woff2/mjx-tex-zero.woff2",
+    "size": 960,
+    "referencedBy": []
+   },
+   {
+    "file": "quicklook/index.html",
+    "size": 595,
+    "referencedBy": [
+     "app.js",
+     "main.js",
+     "package.json"
+    ]
+   },
+   {
+    "file": "quicklook.css",
+    "size": 117038,
+    "referencedBy": [
+     "main.js",
+     "quicklook/index.html"
+    ],
+    "banner": "Obsidian theme variables"
+   },
+   {
+    "file": "quicklook.js",
+    "size": 679096,
+    "referencedBy": [
+     "main.js",
+     "quicklook/index.html"
+    ]
+   }
+  ],
+  "removed": [
+   {
+    "file": "i18n/kh.txt",
+    "size": 205359
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/tex.js",
+    "size": 104800
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff",
+    "size": 40808
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff",
+    "size": 9908
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff",
+    "size": 9600
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff",
+    "size": 22340
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff",
+    "size": 21480
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff",
+    "size": 34464
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff",
+    "size": 20832
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff",
+    "size": 34160
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff",
+    "size": 19776
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff",
+    "size": 19360
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Math-Regular.woff",
+    "size": 19288
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff",
+    "size": 15944
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff",
+    "size": 14628
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff",
+    "size": 12660
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff",
+    "size": 11852
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff",
+    "size": 5792
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff",
+    "size": 5464
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff",
+    "size": 3244
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff",
+    "size": 5148
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff",
+    "size": 17604
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff",
+    "size": 1116
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff",
+    "size": 1136
+   },
+   {
+    "file": "lib/mathjax/output/chtml/fonts/woff-v2/MathJax_Zero.woff",
+    "size": 1368
+   },
+   {
+    "file": "lib/mathjax/tex-chtml-full.js",
+    "size": 1338727
+   }
+  ],
+  "changed": [
+   {
+    "file": "app.js",
+    "before": 3876459,
+    "after": 3942126
+   },
+   {
+    "file": "app.css",
+    "before": 637090,
+    "after": 668223
+   },
+   {
+    "file": "help.js",
+    "before": 377345,
+    "after": 399153
+   },
+   {
+    "file": "starter.js",
+    "before": 440870,
+    "after": 461410
+   },
+   {
+    "file": "main.js",
+    "before": 199730,
+    "after": 203702
+   },
+   {
+    "file": "i18n/th.txt",
+    "before": 181945,
+    "after": 180818
+   },
+   {
+    "file": "lib/codemirror/markdown.js",
+    "before": 44078,
+    "after": 45052
+   },
+   {
+    "file": "i18n/ne.txt",
+    "before": 210197,
+    "after": 209244
+   },
+   {
+    "file": "i18n/ka.txt",
+    "before": 206930,
+    "after": 205986
+   },
+   {
+    "file": "i18n/fa.txt",
+    "before": 133180,
+    "after": 132294
+   },
+   {
+    "file": "i18n/ru.txt",
+    "before": 151101,
+    "after": 150240
+   },
+   {
+    "file": "i18n/zh.txt",
+    "before": 71706,
+    "after": 70913
+   },
+   {
+    "file": "i18n/tr.txt",
+    "before": 87113,
+    "after": 86404
+   },
+   {
+    "file": "i18n/am.txt",
+    "before": 128250,
+    "after": 127562
+   },
+   {
+    "file": "i18n/bn.txt",
+    "before": 193167,
+    "after": 192482
+   },
+   {
+    "file": "i18n/uk.txt",
+    "before": 144422,
+    "after": 143740
+   },
+   {
+    "file": "i18n/vi.txt",
+    "before": 104220,
+    "after": 103547
+   },
+   {
+    "file": "i18n/fr.txt",
+    "before": 94363,
+    "after": 95033
+   },
+   {
+    "file": "i18n/ko.txt",
+    "before": 96745,
+    "after": 96091
+   },
+   {
+    "file": "i18n/zh-TW.txt",
+    "before": 70458,
+    "after": 69816
+   },
+   {
+    "file": "i18n/fi.txt",
+    "before": 82934,
+    "after": 82312
+   },
+   {
+    "file": "i18n/be.txt",
+    "before": 145744,
+    "after": 145128
+   },
+   {
+    "file": "i18n/hu.txt",
+    "before": 96898,
+    "after": 96297
+   },
+   {
+    "file": "i18n/ja.txt",
+    "before": 113630,
+    "after": 113042
+   },
+   {
+    "file": "i18n/ga.txt",
+    "before": 90307,
+    "after": 89729
+   },
+   {
+    "file": "i18n/es.txt",
+    "before": 89014,
+    "after": 88438
+   },
+   {
+    "file": "i18n/ar.txt",
+    "before": 119399,
+    "after": 118825
+   },
+   {
+    "file": "i18n/ms.txt",
+    "before": 80904,
+    "after": 80335
+   },
+   {
+    "file": "i18n/en-GB.txt",
+    "before": 7030,
+    "after": 7594
+   },
+   {
+    "file": "i18n/da.txt",
+    "before": 77109,
+    "after": 76562
+   },
+   {
+    "file": "i18n/ro.txt",
+    "before": 93594,
+    "after": 93059
+   },
+   {
+    "file": "i18n/ca.txt",
+    "before": 90424,
+    "after": 89893
+   },
+   {
+    "file": "i18n/uz.txt",
+    "before": 89039,
+    "after": 88508
+   },
+   {
+    "file": "i18n/pt-BR.txt",
+    "before": 86100,
+    "after": 85577
+   },
+   {
+    "file": "i18n/pt.txt",
+    "before": 86559,
+    "after": 86037
+   },
+   {
+    "file": "i18n/sq.txt",
+    "before": 92330,
+    "after": 91808
+   },
+   {
+    "file": "i18n/id.txt",
+    "before": 79181,
+    "after": 78667
+   },
+   {
+    "file": "i18n/it.txt",
+    "before": 85404,
+    "after": 84903
+   },
+   {
+    "file": "i18n/sr.txt",
+    "before": 141087,
+    "after": 140592
+   },
+   {
+    "file": "worker.js",
+    "before": 239283,
+    "after": 239777
+   },
+   {
+    "file": "i18n/nl.txt",
+    "before": 84183,
+    "after": 83697
+   },
+   {
+    "file": "i18n/no.txt",
+    "before": 76961,
+    "after": 76481
+   },
+   {
+    "file": "i18n/he.txt",
+    "before": 105530,
+    "after": 105053
+   },
+   {
+    "file": "i18n/de.txt",
+    "before": 90808,
+    "after": 90333
+   },
+   {
+    "file": "i18n/cs.txt",
+    "before": 87217,
+    "after": 86806
+   },
+   {
+    "file": "i18n/lv.txt",
+    "before": 86933,
+    "after": 86529
+   },
+   {
+    "file": "i18n/sk.txt",
+    "before": 89555,
+    "after": 89189
+   },
+   {
+    "file": "lib/codemirror/vim.js",
+    "before": 249266,
+    "after": 248977
+   },
+   {
+    "file": "i18n/sv.txt",
+    "before": 80439,
+    "after": 80158
+   },
+   {
+    "file": "i18n/mapping.txt",
+    "before": 98791,
+    "after": 98599
+   },
+   {
+    "file": "enhance.js",
+    "before": 13346,
+    "after": 13229
+   },
+   {
+    "file": "i18n/pl.txt",
+    "before": 85858,
+    "after": 85920
+   },
+   {
+    "file": "i18n.js",
+    "before": 133013,
+    "after": 132996
+   },
+   {
+    "file": "package.json",
+    "before": 260,
+    "after": 260
+   }
+  ]
+ }
+}
